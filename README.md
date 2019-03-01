@@ -15,10 +15,11 @@ A community-driven port of [mg](https://man.openbsd.org/mg.1) to [Rust](https://
 # Why mg?
 
 mg is intended to be a small, fast, and portable editor for people who
-can't (or don't want to) run emacs for one reason or another, or are
-not familiar with the vi(1) editor.  It is compatible with emacs
-because there shouldn't be any reason to learn more editor types than
-emacs or vi(1).
+can't (or don't want to) run Emacs for one reason or another, or are
+not familiar with the [vi](https://man.openbsd.org/vi.1) editor.  It
+is compatible with Emacs because there shouldn't be any reason to
+learn more editor types than Emacs or
+[vi](https://man.openbsd.org/vi.1).
 
 # Why Rust?
 
