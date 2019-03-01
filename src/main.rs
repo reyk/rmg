@@ -17,6 +17,8 @@
 extern crate libc;
 
 use std::env;
+use std::ffi::CString;
+
 use libc::{c_int, c_char};
 
 extern "C" {
@@ -24,9 +26,15 @@ extern "C" {
 }
 
 fn main() {
-    let args: Vec<_> = env::args().collect();
+    let args = env::args()
+        .into_iter()
+        .map(|arg| CString::new(arg).unwrap())
+        .collect::<Vec<CString>>();
+    let argv = args.iter()
+        .map(|arg| arg.as_ptr())
+        .collect::<Vec<*const c_char>>();
 
     unsafe {
-        mg_main(args.len() as c_int, args.as_ptr() as *const *const c_char);
+        mg_main(argv.len() as c_int, argv.as_ptr());
     }
 }
