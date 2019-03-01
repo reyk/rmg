@@ -18,6 +18,7 @@ extern crate libc;
 
 use std::env;
 use std::ffi::CString;
+use std::process;
 
 use libc::{c_int, c_char};
 
@@ -34,7 +35,5 @@ fn main() {
         .map(|arg| arg.as_ptr())
         .collect::<Vec<*const c_char>>();
 
-    unsafe {
-        mg_main(argv.len() as c_int, argv.as_ptr());
-    }
+    process::exit(unsafe { mg_main(argv.len() as c_int, argv.as_ptr()) });
 }
