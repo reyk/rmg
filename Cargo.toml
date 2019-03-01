@@ -1,0 +1,12 @@
+[package]
+name = "rmg"
+version = "0.1.0"
+authors = ["Reyk Floeter <contact@reykfloeter.com>"]
+build = "src/build.rs"
+
+[dependencies]
+libc = "0.2.49"
+
+[build-dependencies]
+glob = "0.2.11"
+cc = "1.0.29"
