@@ -14,13 +14,10 @@
 // OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 //
 
-extern crate libc;
-
 use std::env;
 use std::ffi::CString;
+use std::os::raw::{c_int, c_char};
 use std::process;
-
-use libc::{c_int, c_char};
 
 extern "C" {
     fn mg_main(argv: c_int, argv: *const *const c_char) -> c_int;
